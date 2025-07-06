@@ -18,7 +18,7 @@ jobs:
       - name: Build it
         run: GOOS=linux GOARCH=amd64 go build -o api-casa main.go
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: binary-artifact
           path: ./api-casa
@@ -28,7 +28,7 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: binary-artifact
       - name: Adding private SSH key to ssh-agent
